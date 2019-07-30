@@ -8,10 +8,6 @@ import android.net.ConnectivityManager;
 import androidx.appcompat.app.AlertDialog;
 
 public class App extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
     public static Boolean checkConnection(final Context context) {
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
         if (manager.getActiveNetworkInfo() == null) {
@@ -32,5 +28,10 @@ public class App extends Application {
             return true;
         }
 
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
     }
 }

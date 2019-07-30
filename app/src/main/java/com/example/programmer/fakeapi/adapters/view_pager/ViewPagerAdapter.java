@@ -8,9 +8,10 @@ import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     List<Fragment> list;
-    public ViewPagerAdapter(FragmentManager fm,List<Fragment> list) {
+
+    public ViewPagerAdapter(FragmentManager fm, List<Fragment> list) {
         super(fm);
-        this.list=list;
+        this.list = list;
     }
 
     @Override

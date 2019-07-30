@@ -38,7 +38,31 @@ public class MainActivity extends AppCompatActivity {
     private ViewPagerAdapter viewPagerAdapter;
     private MenuItem item;
     private MainViewModel viewModel;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+
+                    viewPager.setCurrentItem(0);
+
+                    return true;
+                case R.id.navigation_dashboard:
+
+                    viewPager.setCurrentItem(1);
+
+                    return true;
+                case R.id.navigation_notifications:
+
+                    viewPager.setCurrentItem(2);
+
+                    return true;
+            }
+            return false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +74,12 @@ public class MainActivity extends AppCompatActivity {
         createBottomNaviagte();
 
 
-        viewModel= ViewModelProviders.of(this).get(MainViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         viewModel.getLiveData().observe(this, new Observer<List<Users>>() {
             @Override
             public void onChanged(List<Users> users) {
-                for(int i=0;i<users.size();i++)
-                {
-                    Log.d("uuuuuuu",users.get(i).getAddress().getCity());
+                for (int i = 0; i < users.size(); i++) {
+                    Log.d("uuuuuuu", users.get(i).getAddress().getCity());
                 }
             }
         });
@@ -98,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
                 item = navView.getMenu().getItem(position);
 
 
-
             }
 
             @Override
@@ -113,32 +135,6 @@ public class MainActivity extends AppCompatActivity {
 
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-
-                    viewPager.setCurrentItem(0);
-
-                    return true;
-                case R.id.navigation_dashboard:
-
-                    viewPager.setCurrentItem(1);
-
-                    return true;
-                case R.id.navigation_notifications:
-
-                    viewPager.setCurrentItem(2);
-
-                    return true;
-            }
-            return false;
-        }
-    };
 
     @Override
     public void onBackPressed() {

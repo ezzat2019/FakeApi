@@ -13,6 +13,20 @@ public class Users {
     private String website;
     private Company company;
 
+    public Users(int id, String name, String username, String email, Address address, String phone, String website, Company company) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        this.website = website;
+        this.company = company;
+    }
+
+    public Users() {
+    }
+
     public int getId() {
         return id;
     }
@@ -75,19 +89,5 @@ public class Users {
 
     public void setCompany(Company company) {
         this.company = company;
-    }
-
-    public Users(int id, String name, String username, String email, Address address, String phone, String website, Company company) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.email = email;
-        this.address = address;
-        this.phone = phone;
-        this.website = website;
-        this.company = company;
-    }
-
-    public Users() {
     }
 }
