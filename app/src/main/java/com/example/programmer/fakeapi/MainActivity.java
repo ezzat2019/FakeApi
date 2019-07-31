@@ -9,20 +9,23 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.programmer.fakeapi.adapters.view_pager.ViewPagerAdapter;
 import com.example.programmer.fakeapi.fragments.AlbumFragment;
 import com.example.programmer.fakeapi.fragments.PostFragment;
 import com.example.programmer.fakeapi.fragments.UsersFragment;
-import com.example.programmer.fakeapi.models.Users;
+import com.example.programmer.fakeapi.models.Comments;
+import com.example.programmer.fakeapi.retrofit.RetrofitMain;
 import com.example.programmer.fakeapi.view_models.MainViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     // ui
@@ -73,16 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
         createBottomNaviagte();
 
-
-        viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        viewModel.getLiveData().observe(this, new Observer<List<Users>>() {
-            @Override
-            public void onChanged(List<Users> users) {
-                for (int i = 0; i < users.size(); i++) {
-                    Log.d("uuuuuuu", users.get(i).getAddress().getCity());
-                }
-            }
-        });
 
 
     }

@@ -4,43 +4,47 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
+import androidx.paging.LivePagedListBuilder;
+import androidx.paging.PagedList;
 
-import com.example.programmer.fakeapi.models.Users;
-import com.example.programmer.fakeapi.retrofit.RetrofitMain;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.programmer.fakeapi.data_source.DataSourceComment;
+import com.example.programmer.fakeapi.data_source.DataSourcePosts;
+import com.example.programmer.fakeapi.data_source.data_source_factory.DataSourceCommentsFactory;
+import com.example.programmer.fakeapi.data_source.data_source_factory.DataSourcePostsFactory;
+import com.example.programmer.fakeapi.models.Comments;
+import com.example.programmer.fakeapi.models.Posts;
 
 public class MainViewModel extends AndroidViewModel {
-    private MutableLiveData<List<Users>> liveData;
 
-    public MutableLiveData<List<Users>> getLiveData() {
-        return liveData;
+
+    private LiveData<PagedList<Posts>> pagedListLiveDataPosts;
+
+    public LiveData<PagedList<Comments>> getPagedListLiveDataComments() {
+        return pagedListLiveDataComments;
+    }
+
+    private LiveData<PagedList<Comments>> pagedListLiveDataComments;
+
+    public LiveData<PagedList<Posts>> getPagedListLiveDataPosts() {
+        return pagedListLiveDataPosts;
     }
 
     public MainViewModel(@NonNull Application application) {
         super(application);
-        liveData=new MutableLiveData<>();
-        RetrofitMain.getInstance().getUserHelperApi().getUsers().enqueue(new Callback<List<Users>>() {
-            @Override
-            public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {
-                liveData.postValue(response.body());
 
+        DataSourcePosts.Factory factory = new DataSourcePostsFactory();
+        PagedList.Config config = new PagedList.Config.Builder().setEnablePlaceholders(true)
+                .setInitialLoadSizeHint(4)
+                .setPageSize(10)
+                .setPrefetchDistance(4).build();
+        pagedListLiveDataPosts = new LivePagedListBuilder<Integer, Posts>(factory, config).build();
 
-            }
+        DataSourceComment.Factory dataSourceComment = new DataSourceCommentsFactory();
+        pagedListLiveDataComments = new LivePagedListBuilder<Integer, Comments>(dataSourceComment, config).build();
 
-            @Override
-            public void onFailure(Call<List<Users>> call, Throwable t) {
-
-            }
-        });
 
     }
-
 
 
 }
