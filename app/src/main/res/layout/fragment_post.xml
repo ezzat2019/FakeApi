@@ -2,10 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:sothree="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/back_yellow4"
     android:layout_height="match_parent"
+    android:background="@drawable/back_yellow4"
     tools:context=".fragments.PostFragment">
+
+    <include
+        android:id="@+id/action"
+        layout="@layout/action_bar_custom" />
+
 
     <ProgressBar
         android:id="@+id/progress_bar_post"
@@ -19,8 +23,9 @@
         android:id="@+id/rec_posts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/action"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp" />
 

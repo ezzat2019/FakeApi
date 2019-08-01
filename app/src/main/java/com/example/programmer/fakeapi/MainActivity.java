@@ -1,9 +1,13 @@
 package com.example.programmer.fakeapi;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,17 +19,11 @@ import com.example.programmer.fakeapi.adapters.view_pager.ViewPagerAdapter;
 import com.example.programmer.fakeapi.fragments.AlbumFragment;
 import com.example.programmer.fakeapi.fragments.PostFragment;
 import com.example.programmer.fakeapi.fragments.UsersFragment;
-import com.example.programmer.fakeapi.models.Comments;
-import com.example.programmer.fakeapi.retrofit.RetrofitMain;
 import com.example.programmer.fakeapi.view_models.MainViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     // ui
@@ -33,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private List<Fragment> fragmentList;
-    private BottomNavigationView navView;
+    public static BottomNavigationView navView;
+
 
     // var
 
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPagerAdapter viewPagerAdapter;
     private MenuItem item;
     private MainViewModel viewModel;
+    private InputMethodManager methodManager;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -76,9 +76,13 @@ public class MainActivity extends AppCompatActivity {
 
         createBottomNaviagte();
 
+        methodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+
 
 
     }
+
 
     private void createViewPager() {
         fragmentList = new ArrayList<>();
@@ -131,6 +135,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        // close search view on back button pressed
+        if (PostFragment.searchView!=null) {
+            if (!PostFragment.searchView.isIconified()) {
+                PostFragment.searchView.setIconified(true);
+                return;
+            }
+        }
+
         if (isBack) {
             super.onBackPressed();
         } else {
@@ -146,4 +158,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+
 }

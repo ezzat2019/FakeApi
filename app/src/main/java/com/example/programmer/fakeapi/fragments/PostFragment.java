@@ -1,13 +1,17 @@
 package com.example.programmer.fakeapi.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.programmer.fakeapi.CommentActivity;
+import com.example.programmer.fakeapi.MainActivity;
 import com.example.programmer.fakeapi.R;
 import com.example.programmer.fakeapi.adapters.RecyclePostAdapter;
 import com.example.programmer.fakeapi.models.Posts;
@@ -34,12 +39,14 @@ public class PostFragment extends Fragment {
     // ui
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
+    public static android.widget.SearchView searchView;
 
 
     // var
     private RecyclePostAdapter adapter;
     private MainViewModel mainViewModel;
     private static int id1;
+
 
 
     public PostFragment() {
@@ -60,9 +67,32 @@ public class PostFragment extends Fragment {
 
         setUpProgessBar(view);
 
-
         setUpRecycle(view);
 
+        setUpSearchView(view);
+
+    }
+
+    private void setUpSearchView(View view) {
+
+
+
+        searchView=view.findViewById(R.id.post_search);
+
+      searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+          @Override
+          public boolean onQueryTextSubmit(String s) {
+
+              adapter.getFilter().filter(s);
+              return false;
+          }
+
+          @Override
+          public boolean onQueryTextChange(String s) {
+              adapter.getFilter().filter(s);
+              return false;
+          }
+      });
     }
 
 
@@ -112,4 +142,5 @@ public class PostFragment extends Fragment {
     public void setId1(int id22) {
         id1 = id22;
     }
+
 }
