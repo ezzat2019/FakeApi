@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     tools:context=".CommentActivity">
@@ -17,6 +18,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_comment"
         android:layout_width="match_parent"
+        android:background="@drawable/sssss"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"

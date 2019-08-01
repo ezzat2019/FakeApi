@@ -12,13 +12,33 @@ import com.example.programmer.fakeapi.data_source.DataSourceComment;
 import com.example.programmer.fakeapi.data_source.DataSourcePosts;
 import com.example.programmer.fakeapi.data_source.data_source_factory.DataSourceCommentsFactory;
 import com.example.programmer.fakeapi.data_source.data_source_factory.DataSourcePostsFactory;
+import com.example.programmer.fakeapi.models.Album;
 import com.example.programmer.fakeapi.models.Comments;
+import com.example.programmer.fakeapi.models.Photo;
 import com.example.programmer.fakeapi.models.Posts;
+import com.example.programmer.fakeapi.repositres.AlbumRepositry;
+import com.example.programmer.fakeapi.repositres.PhotoRepositry;
+import com.example.programmer.fakeapi.retrofit.RetrofitMain;
+
+import java.util.List;
 
 public class MainViewModel extends AndroidViewModel {
 
 
     private LiveData<PagedList<Posts>> pagedListLiveDataPosts;
+    private LiveData<List<Album>> listLiveDataAlbum;
+
+    public LiveData<List<Photo>> getListLiveDataPhoto() {
+        listLiveDataPhoto= PhotoRepositry.getInstance().getAllAlbum();
+        return listLiveDataPhoto;
+    }
+
+    private LiveData<List<Photo>> listLiveDataPhoto;
+
+    public LiveData<List<Album>> getListLiveDataAlbum() {
+        listLiveDataAlbum = AlbumRepositry.getInstance().getAllAlbum();
+        return listLiveDataAlbum;
+    }
 
     public LiveData<PagedList<Comments>> getPagedListLiveDataComments() {
         return pagedListLiveDataComments;

@@ -30,7 +30,7 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
     private static ItemClickInterface clickInterface;
     private List<Posts> list = new ArrayList<>();
     private List<Posts> filetr = new ArrayList();
-    private  static  boolean isOn=false;
+    private static boolean isOn = false;
 
     public static void setIsOn(boolean isOn) {
         RecyclePostAdapter.isOn = isOn;
@@ -92,10 +92,7 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
         }
 
 
-
-            holder.bind(list.get(position));
-
-
+        holder.bind(list.get(position));
 
 
     }
@@ -110,17 +107,15 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
                 Log.d("sssssss", "list b");
 
 
+                filetr.clear();
 
-                    filetr.clear();
+                for (Posts posts : getCurrentList()) {
+                    if (posts.getTitle().toLowerCase().startsWith(charSequence.toString().toLowerCase())) {
 
-                    for (Posts posts : getCurrentList()) {
-                        if (posts.getTitle().toLowerCase().startsWith(charSequence.toString().toLowerCase())) {
-
-                            filetr.add(posts);
-                        }
-
+                        filetr.add(posts);
                     }
 
+                }
 
 
                 FilterResults results = new FilterResults();
@@ -133,7 +128,7 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
 
                 list.clear();
                 list.addAll((Collection<? extends Posts>) filterResults.values);
-                Log.d("ssssss",list.size()+"  "+filetr.size());
+                Log.d("ssssss", list.size() + "  " + filetr.size());
                 if (list.size() != 0)
                     notifyDataSetChanged();
                 else {

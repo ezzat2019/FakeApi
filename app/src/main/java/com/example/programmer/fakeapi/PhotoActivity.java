@@ -1,21 +1,5 @@
 package com.example.programmer.fakeapi;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.os.Bundle;
-import android.os.Handler;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ListView;
-import android.widget.PopupWindow;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -23,39 +7,47 @@ import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
 import com.example.programmer.fakeapi.adapters.RecycleCommentAdapter;
+import com.example.programmer.fakeapi.adapters.view_pager.RecyclePhotoAdapter;
 import com.example.programmer.fakeapi.models.Comments;
+import com.example.programmer.fakeapi.models.Photo;
 import com.example.programmer.fakeapi.ui.ItemClickInterface;
 import com.example.programmer.fakeapi.view_models.MainViewModel;
 
-public class CommentActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class PhotoActivity extends AppCompatActivity {
+
     // ui
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
 
 
     // var
-    private RecycleCommentAdapter adapter;
+    private RecyclePhotoAdapter adapter;
     private MainViewModel mainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-        setContentView(R.layout.activity_comment);
-       // overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-
+        setContentView(R.layout.activity_photo);
 
         setUpProgessBar();
 
 
         setUpRecycle();
+
     }
-
-
-
     private void setUpProgessBar() {
-        progressBar = findViewById(R.id.progress_bar_comment);
+        progressBar = findViewById(R.id.progress_bar_photo);
         progressBar.setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -66,30 +58,26 @@ public class CommentActivity extends AppCompatActivity {
     }
 
     private void setUpRecycle() {
-        recyclerView = findViewById(R.id.rec_comment);
+        recyclerView = findViewById(R.id.rec_photo);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        adapter = new RecycleCommentAdapter(getApplicationContext());
+        adapter = new RecyclePhotoAdapter(getApplication());
 
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
-        mainViewModel.getPagedListLiveDataComments().observe(this, new Observer<PagedList<Comments>>() {
+        mainViewModel.getListLiveDataPhoto().observe(this, new Observer<List<Photo>>() {
             @Override
-            public void onChanged(PagedList<Comments> comments) {
-                adapter.submitList(comments);
+            public void onChanged(List<Photo> photos) {
+                adapter.setList(new ArrayList<Photo>(photos));
                 recyclerView.setAdapter(adapter);
-
-
             }
         });
         adapter.setOnItem(new ItemClickInterface() {
             @Override
             public void onClick(int pos) {
 
-                Toast.makeText(CommentActivity.this, pos + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), pos + "", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
-
-
 }

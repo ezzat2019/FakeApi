@@ -20,11 +20,21 @@
 
         <SearchView
             android:layout_width="wrap_content"
-            android:id="@+id/post_search"
+            android:id="@+id/album_search"
             android:layout_alignParentRight="true"
             android:layout_marginRight="6dp"
 
             android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/txt_head_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ALBUM"
+           android:layout_centerInParent="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            />
 
 
 

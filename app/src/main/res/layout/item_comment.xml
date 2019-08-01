@@ -4,9 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
+
     android:layout_marginTop="15dp"
     android:layout_marginRight="8dp"
     android:elevation="12dp"
+    android:background="?android:attr/selectableItemBackground"
+
 
     android:orientation="vertical"
     app:cardCornerRadius="2dp"
@@ -23,24 +26,36 @@
             android:id="@+id/txt_title_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:singleLine="true"
             android:text="title"
             android:textColor="#000"
             android:textSize="16dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txt_body_comment"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:layout_below="@+id/txt_title_comment"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:textAlignment="center"
-            android:background="@drawable/square"
-            android:text="body"
-            android:textColor="#E1665A5A"
-            android:textSize="14dp" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_body_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:background="@drawable/square"
+                android:text="body"
+                android:textColor="#E1665A5A"
+                android:textSize="14dp" />
+
+
+        </FrameLayout>
+
+
 
 
     </RelativeLayout>

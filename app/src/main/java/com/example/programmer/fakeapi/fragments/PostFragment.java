@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +41,7 @@ public class PostFragment extends Fragment {
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     public static android.widget.SearchView searchView;
+    private TextView txtHead;
 
 
     // var
@@ -65,6 +67,8 @@ public class PostFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        txtHead=view.findViewById(R.id.txt_head_posts);
+
         setUpProgessBar(view);
 
         setUpRecycle(view);
@@ -78,6 +82,20 @@ public class PostFragment extends Fragment {
 
 
         searchView=view.findViewById(R.id.post_search);
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtHead.setVisibility(View.GONE);
+            }
+        });
+
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                txtHead.setVisibility(View.VISIBLE);
+                return false;
+            }
+        });
 
       searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
           @Override
