@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.programmer.fakeapi.R;
 import com.example.programmer.fakeapi.models.Comments;
-import com.example.programmer.fakeapi.models.Posts;
 import com.example.programmer.fakeapi.ui.ItemClickInterface;
 
 public class RecycleCommentAdapter extends PagedListAdapter<Comments, RecycleCommentAdapter.VH> {
@@ -33,13 +32,13 @@ public class RecycleCommentAdapter extends PagedListAdapter<Comments, RecycleCom
         }
     };
 
-    public void setOnItem(ItemClickInterface clickInterface) {
-        this.clickInterface = clickInterface;
-    }
-
     public RecycleCommentAdapter(Context context) {
         super(diffCallback);
         cont = context;
+    }
+
+    public void setOnItem(ItemClickInterface clickInterface) {
+        this.clickInterface = clickInterface;
     }
 
     @NonNull
@@ -70,7 +69,7 @@ public class RecycleCommentAdapter extends PagedListAdapter<Comments, RecycleCom
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    clickInterface.onClick(getPosition());
+                    clickInterface.onClick(getAdapterPosition());
 
                 }
             });

@@ -11,13 +11,33 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitMain {
+    public static final String URL_API = "https://jsonplaceholder.typicode.com/";
     private static final RetrofitMain ourInstance = new RetrofitMain();
     private Retrofit retrofit;
-    public static final String URL_API = "https://jsonplaceholder.typicode.com/";
     private UserHelperApi userHelperApi;
     private AlbumHelberApi albumHelberApi;
     private CommentHelberApi commentHelberApi;
     private PhotoHelberApi photoHelberApi;
+    private PostHelberApi postHelberApi;
+    private TodoHelberApi todoHelberApi;
+
+    private RetrofitMain() {
+        retrofit = new Retrofit.Builder().baseUrl(URL_API).addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        userHelperApi = retrofit.create(UserHelperApi.class);
+        albumHelberApi = retrofit.create(AlbumHelberApi.class);
+        commentHelberApi = retrofit.create(CommentHelberApi.class);
+        photoHelberApi = retrofit.create(PhotoHelberApi.class);
+        postHelberApi = retrofit.create(PostHelberApi.class);
+        todoHelberApi = retrofit.create(TodoHelberApi.class);
+
+
+    }
+
+    public static RetrofitMain getInstance() {
+        return ourInstance;
+    }
 
     public AlbumHelberApi getAlbumHelberApi() {
         return albumHelberApi;
@@ -37,27 +57,6 @@ public class RetrofitMain {
 
     public TodoHelberApi getTodoHelberApi() {
         return todoHelberApi;
-    }
-
-    private PostHelberApi postHelberApi;
-    private TodoHelberApi todoHelberApi;
-
-    public static RetrofitMain getInstance() {
-        return ourInstance;
-    }
-
-    private RetrofitMain() {
-        retrofit = new Retrofit.Builder().baseUrl(URL_API).addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        userHelperApi = retrofit.create(UserHelperApi.class);
-        albumHelberApi = retrofit.create(AlbumHelberApi.class);
-        commentHelberApi = retrofit.create(CommentHelberApi.class);
-        photoHelberApi = retrofit.create(PhotoHelberApi.class);
-        postHelberApi = retrofit.create(PostHelberApi.class);
-        todoHelberApi = retrofit.create(TodoHelberApi.class);
-
-
     }
 
     public UserHelperApi getUserHelperApi() {

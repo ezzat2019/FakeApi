@@ -3,8 +3,8 @@
     android:color="@color/colorPrimary">
     <item android:id="@android:id/mask">
         <shape android:shape="oval">
-            <solid android:color="?android:colorPrimary"/>
+            <solid android:color="?android:colorPrimary" />
         </shape>
-        <color android:color="#FFC107"/>
+        <color android:color="#FFC107" />
     </item>
 </ripple>

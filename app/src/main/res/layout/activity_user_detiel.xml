@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="9dp"
+    android:orientation="vertical"
+    tools:context=".UserDetielActivity"
+
+
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF186"
+
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <FrameLayout
+
+            android:id="@+id/zz"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/aaaa"
+                    layout="@layout/action_bar_custom_user" />
+
+                <TextView
+                    android:id="@+id/txt_u_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/aaaa"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="2dp"
+
+                    android:singleLine="true"
+                    android:text="ID : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_id_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/aaaa"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_id"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp"
+                    android:transitionName="id_us" />
+
+                <TextView
+                    android:id="@+id/txt_u_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_id"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Name : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_name_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_id"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_name"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp"
+                    android:transitionName="name_us" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_name"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="User Name : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_name_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_name"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_user_name"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp"
+                    android:transitionName="user_name_us" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_user_name"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Email : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_email_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_user_name_n2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_user_email"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp"
+                    android:transitionName="email_us" />
+
+                <View
+                    android:id="@+id/vv"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/txt_u_user_email"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorAccent"
+                    android:transitionName="vv_us" />
+
+                <TextView
+                    android:id="@+id/txt_adress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vv"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:singleLine="true"
+                    android:text="ADRESS "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_u_id2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_adress"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Street : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_street_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_adress"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_id2"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/txt_u_name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_street_n2"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Suite : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_suite_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_street_n2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_name2"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_suite_n2"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="City : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_city_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_suite_n2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_user_name2"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_email2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_user_city_n2"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Zip Code : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_zipcode_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_user_city_n2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_user_email2"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+                <View
+                    android:id="@+id/vv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/txt_u_user_zipcode_n2"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/txt_comp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vv2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:singleLine="true"
+                    android:text="COMPANY "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_u_id3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_comp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Name : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_comp_name_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_comp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_id3"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/txt_u_name3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_comp_name_n2"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="CatchPhrase : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_catch_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_comp_name_n2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_name3"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_name3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_catch_n2"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Bs : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_bs_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_catch_n2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_user_name3"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+
+                <View
+                    android:id="@+id/vv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/txt_u_user_bs_n2"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorAccent" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_id4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_phone_n2"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Website : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_website_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_phone_n2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_id4"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/txt_u_name4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vv3"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Phone : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_phone_n2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vv3"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_name4"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp" />
+
+                <View
+                    android:id="@+id/vv4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/txt_u_website_n2"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorAccent" />
+
+                <Button
+
+                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/vv4"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:onClick="showUserLoc"
+
+                    android:text="Show User Location"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+
+                    android:textSize="12dp" />
+
+
+            </RelativeLayout>
+
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

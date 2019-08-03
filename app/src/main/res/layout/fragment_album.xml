@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorBackground"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context=".fragments.AlbumFragment">
+
     <include
         android:id="@+id/action"
         layout="@layout/action_bar_custom_alubm" />
@@ -27,8 +28,6 @@
 
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp" />
-
-
 
 
 </RelativeLayout>

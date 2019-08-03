@@ -1,7 +1,5 @@
 package com.example.programmer.fakeapi.data_source;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.paging.PageKeyedDataSource;
 import androidx.paging.PagedList;
@@ -9,7 +7,6 @@ import androidx.paging.PagedList;
 import com.example.programmer.fakeapi.models.Posts;
 import com.example.programmer.fakeapi.retrofit.RetrofitMain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -47,10 +44,10 @@ public class DataSourcePosts extends PageKeyedDataSource<Integer, Posts> {
             @Override
             public void onResponse(Call<PagedList<Posts>> call, Response<PagedList<Posts>> response) {
                 Integer i;
-                List  list=response.body();
-              //  Log.d("sssss",list.size()+"  ff" + params.key);
+                List list = response.body();
+                //  Log.d("sssss",list.size()+"  ff" + params.key);
 
-                callback.onResult(response.body(),null);
+                callback.onResult(response.body(), null);
 
             }
 

@@ -2,8 +2,17 @@ package com.example.programmer.fakeapi.models.custom_model;
 
 public class Company {
     private String name;
-    private String catchphrase;
+    private String catchPhrase;
     private String bs;
+
+    public Company(String name, String catchphrase, String bs) {
+        this.name = name;
+        this.catchPhrase = catchphrase;
+        this.bs = bs;
+    }
+
+    public Company() {
+    }
 
     public String getName() {
         return name;
@@ -14,11 +23,11 @@ public class Company {
     }
 
     public String getCatchphrase() {
-        return catchphrase;
+        return catchPhrase;
     }
 
     public void setCatchphrase(String catchphrase) {
-        this.catchphrase = catchphrase;
+        this.catchPhrase = catchphrase;
     }
 
     public String getBs() {
@@ -27,14 +36,5 @@ public class Company {
 
     public void setBs(String bs) {
         this.bs = bs;
-    }
-
-    public Company(String name, String catchphrase, String bs) {
-        this.name = name;
-        this.catchphrase = catchphrase;
-        this.bs = bs;
-    }
-
-    public Company() {
     }
 }

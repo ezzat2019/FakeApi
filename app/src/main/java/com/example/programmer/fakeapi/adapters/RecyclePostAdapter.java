@@ -22,24 +22,12 @@ import com.example.programmer.fakeapi.models.Posts;
 import com.example.programmer.fakeapi.ui.ItemClickInterface;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapter.VH> implements Filterable {
     private static Context cont;
     private static ItemClickInterface clickInterface;
-    private List<Posts> list = new ArrayList<>();
-    private List<Posts> filetr = new ArrayList();
     private static boolean isOn = false;
-
-    public static void setIsOn(boolean isOn) {
-        RecyclePostAdapter.isOn = isOn;
-    }
-
-    public static boolean isIsOn() {
-        return isOn;
-    }
-
     private static DiffUtil.ItemCallback<Posts> diffCallback = new DiffUtil.ItemCallback<Posts>() {
         @Override
         public boolean areItemsTheSame(@NonNull Posts oldItem, @NonNull Posts newItem) {
@@ -51,6 +39,23 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
             return oldItem.getTitle().equals(newItem.getTitle());
         }
     };
+    private List<Posts> list = new ArrayList<>();
+    private List<Posts> listAll = new ArrayList<>();
+
+    public RecyclePostAdapter(Context context) {
+        super(diffCallback);
+        cont = context;
+
+
+    }
+
+    public static boolean isIsOn() {
+        return isOn;
+    }
+
+    public static void setIsOn(boolean isOn) {
+        RecyclePostAdapter.isOn = isOn;
+    }
 
     public void setOnItem(ItemClickInterface clickInterface) {
         this.clickInterface = clickInterface;
@@ -60,17 +65,11 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
     public void submitList(@Nullable PagedList<Posts> pagedList) {
 
         super.submitList(pagedList);
+        list.addAll(getCurrentList());
+        listAll.addAll(getCurrentList());
 
 
     }
-
-    public RecyclePostAdapter(Context context) {
-        super(diffCallback);
-        cont = context;
-
-
-    }
-
 
     @NonNull
     @Override
@@ -84,15 +83,8 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
 
-        if (list.size() == 0) {
-            Log.d("sssssss", "list a");
-            list.addAll(getCurrentList());
 
-
-        }
-
-
-        holder.bind(list.get(position));
+        holder.bind(getCurrentList().get(position));
 
 
     }
@@ -107,40 +99,40 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
                 Log.d("sssssss", "list b");
 
 
-                filetr.clear();
+                if (charSequence.toString().isEmpty()) {
+                    listAll.addAll(getCurrentList());
+                } else {
+                    List<Posts> filetr = new ArrayList();
 
-                for (Posts posts : getCurrentList()) {
-                    if (posts.getTitle().toLowerCase().startsWith(charSequence.toString().toLowerCase())) {
+                    for (Posts posts : getCurrentList()) {
+                        if (posts.getTitle().toLowerCase().startsWith(charSequence.toString().toLowerCase())) {
 
-                        filetr.add(posts);
+                            filetr.add(posts);
+                        }
+
                     }
-
+                    submitList((PagedList<Posts>) filetr);
                 }
 
 
                 FilterResults results = new FilterResults();
-                results.values = filetr;
+                results.values = getCurrentList();
                 return results;
             }
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
 
-                list.clear();
-                list.addAll((Collection<? extends Posts>) filterResults.values);
-                Log.d("ssssss", list.size() + "  " + filetr.size());
-                if (list.size() != 0)
+                if (filterResults.values != null) {
+
+
+                    submitList((PagedList<Posts>) filterResults.values);
+
+
                     notifyDataSetChanged();
-                else {
-                    list.clear();
 
 
                 }
-
-
-                filetr.clear();
-
-
             }
         };
     }
@@ -148,9 +140,7 @@ public class RecyclePostAdapter extends PagedListAdapter<Posts, RecyclePostAdapt
     @Override
     public int getItemCount() {
 
-        if (list.size() > 0) {
-            return list.size();
-        }
+
         return super.getItemCount();
     }
 

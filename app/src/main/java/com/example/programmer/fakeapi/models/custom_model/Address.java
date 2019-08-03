@@ -1,11 +1,22 @@
 package com.example.programmer.fakeapi.models.custom_model;
 
-public class Address  {
+public class Address {
     private String street;
     private String suite;
     private String city;
     private String zipcode;
     private Geo geo;
+
+    public Address(String street, String suite, String city, String zipcode, Geo geo) {
+        this.street = street;
+        this.suite = suite;
+        this.city = city;
+        this.zipcode = zipcode;
+        this.geo = geo;
+    }
+
+    public Address() {
+    }
 
     public String getStreet() {
         return street;
@@ -45,16 +56,5 @@ public class Address  {
 
     public void setGeo(Geo geo) {
         this.geo = geo;
-    }
-
-    public Address(String street, String suite, String city, String zipcode, Geo geo) {
-        this.street = street;
-        this.suite = suite;
-        this.city = city;
-        this.zipcode = zipcode;
-        this.geo = geo;
-    }
-
-    public Address() {
     }
 }

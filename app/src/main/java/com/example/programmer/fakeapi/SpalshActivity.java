@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -18,7 +19,9 @@ public class SpalshActivity extends AppCompatActivity {
     private TextView txt;
 
     //  var
-    private Thread thread;
+    private Handler handler;
+    private Runnable runnable;
+    private AlertDialog alertDialog;
     private long time = 2000;
 
 
@@ -27,9 +30,32 @@ public class SpalshActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_main);
 
+        alertDialog = new AlertDialog.Builder(SpalshActivity.this)
+                .setMessage("please check internet connection")
+                .setPositiveButton("try Again", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                    }
+                }).create();
+
+
         creattAnimatinText();
 
+
         customCheckConnection(SpalshActivity.this);
+
+        handler = new Handler();
+        handler.postDelayed(runnable = new Runnable() {
+            @Override
+            public void run() {
+
+                customCheckConnection(SpalshActivity.this);
+                handler.postDelayed(runnable, 2000);
+
+            }
+        }, 2000);
 
 
     }
@@ -47,6 +73,7 @@ public class SpalshActivity extends AppCompatActivity {
             @Override
             public void run() {
                 SystemClock.sleep(time);
+                handler.removeCallbacks(runnable);
                 startActivity(intent);
                 finish();
 
@@ -64,15 +91,7 @@ public class SpalshActivity extends AppCompatActivity {
     private Boolean customCheckConnection(final Context context) {
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
         if (manager.getActiveNetworkInfo() == null) {
-            new AlertDialog.Builder(context)
-                    .setMessage("please check internet connection")
-                    .setPositiveButton("try Again", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            customCheckConnection(context);
-
-                        }
-                    }).create().show();
+            alertDialog.show();
             return false;
 
 
@@ -80,6 +99,21 @@ public class SpalshActivity extends AppCompatActivity {
 
 
             gotoMainAsreen(2000);
+            return true;
+        }
+
+    }
+
+    private Boolean CheckConnection() {
+        ConnectivityManager manager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        if (manager.getActiveNetworkInfo() == null) {
+
+            return false;
+
+
+        } else {
+
+
             return true;
         }
 

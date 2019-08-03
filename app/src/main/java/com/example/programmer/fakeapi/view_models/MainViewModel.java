@@ -16,9 +16,10 @@ import com.example.programmer.fakeapi.models.Album;
 import com.example.programmer.fakeapi.models.Comments;
 import com.example.programmer.fakeapi.models.Photo;
 import com.example.programmer.fakeapi.models.Posts;
+import com.example.programmer.fakeapi.models.Users;
 import com.example.programmer.fakeapi.repositres.AlbumRepositry;
 import com.example.programmer.fakeapi.repositres.PhotoRepositry;
-import com.example.programmer.fakeapi.retrofit.RetrofitMain;
+import com.example.programmer.fakeapi.repositres.UserRepositry;
 
 import java.util.List;
 
@@ -27,28 +28,9 @@ public class MainViewModel extends AndroidViewModel {
 
     private LiveData<PagedList<Posts>> pagedListLiveDataPosts;
     private LiveData<List<Album>> listLiveDataAlbum;
-
-    public LiveData<List<Photo>> getListLiveDataPhoto() {
-        listLiveDataPhoto= PhotoRepositry.getInstance().getAllAlbum();
-        return listLiveDataPhoto;
-    }
-
+    private LiveData<List<Users>> listLiveDataUsers;
     private LiveData<List<Photo>> listLiveDataPhoto;
-
-    public LiveData<List<Album>> getListLiveDataAlbum() {
-        listLiveDataAlbum = AlbumRepositry.getInstance().getAllAlbum();
-        return listLiveDataAlbum;
-    }
-
-    public LiveData<PagedList<Comments>> getPagedListLiveDataComments() {
-        return pagedListLiveDataComments;
-    }
-
     private LiveData<PagedList<Comments>> pagedListLiveDataComments;
-
-    public LiveData<PagedList<Posts>> getPagedListLiveDataPosts() {
-        return pagedListLiveDataPosts;
-    }
 
     public MainViewModel(@NonNull Application application) {
         super(application);
@@ -64,6 +46,29 @@ public class MainViewModel extends AndroidViewModel {
         pagedListLiveDataComments = new LivePagedListBuilder<Integer, Comments>(dataSourceComment, config).build();
 
 
+    }
+
+    public LiveData<List<Users>> getListLiveDataUsers() {
+        listLiveDataUsers = UserRepositry.getInstance().getAllAlbum();
+        return listLiveDataUsers;
+    }
+
+    public LiveData<List<Photo>> getListLiveDataPhoto() {
+        listLiveDataPhoto = PhotoRepositry.getInstance().getAllAlbum();
+        return listLiveDataPhoto;
+    }
+
+    public LiveData<List<Album>> getListLiveDataAlbum() {
+        listLiveDataAlbum = AlbumRepositry.getInstance().getAllAlbum();
+        return listLiveDataAlbum;
+    }
+
+    public LiveData<PagedList<Comments>> getPagedListLiveDataComments() {
+        return pagedListLiveDataComments;
+    }
+
+    public LiveData<PagedList<Posts>> getPagedListLiveDataPosts() {
+        return pagedListLiveDataPosts;
     }
 
 

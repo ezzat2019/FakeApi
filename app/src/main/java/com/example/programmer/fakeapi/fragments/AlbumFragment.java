@@ -34,31 +34,28 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class AlbumFragment extends Fragment {
+    public static android.widget.SearchView searchView;
+    private static int idd;
     // ui
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
-    public static android.widget.SearchView searchView;
     private TextView txtHead;
-
-
     // var
     private RecycleAlbumAdapter adapter;
     private MainViewModel mainViewModel;
     private List<Album> albums;
-    private static int idd;
 
-    public static void setIdd(int idd) {
-        AlbumFragment.idd = idd;
+    public AlbumFragment() {
+        // Required empty public constructor
     }
 
     public static int getIdd() {
         return idd;
     }
 
-    public AlbumFragment() {
-        // Required empty public constructor
+    public static void setIdd(int idd) {
+        AlbumFragment.idd = idd;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

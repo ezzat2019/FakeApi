@@ -3,10 +3,7 @@ package com.example.programmer.fakeapi;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
@@ -29,13 +26,12 @@ public class MainActivity extends AppCompatActivity {
     // ui
 
 
+    public static BottomNavigationView navView;
     private ViewPager viewPager;
     private List<Fragment> fragmentList;
-    public static BottomNavigationView navView;
 
 
     // var
-
     private Boolean isBack = false;
     private ViewPagerAdapter viewPagerAdapter;
     private MenuItem item;
@@ -77,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
         createBottomNaviagte();
 
         methodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-
-
 
 
     }
@@ -136,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // close search view on back button pressed
-        if (PostFragment.searchView!=null) {
+        if (PostFragment.searchView != null) {
             if (!PostFragment.searchView.isIconified()) {
                 PostFragment.searchView.setIconified(true);
                 return;
@@ -158,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
 
 }

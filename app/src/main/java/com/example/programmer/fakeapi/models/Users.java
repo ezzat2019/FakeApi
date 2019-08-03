@@ -11,7 +11,10 @@ public class Users {
     private Address address;
     private String phone;
     private String website;
+
+
     private Company company;
+
 
     public Users(int id, String name, String username, String email, Address address, String phone, String website, Company company) {
         this.id = id;

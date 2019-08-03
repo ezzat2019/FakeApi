@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back_yellow"
+    android:clickable="false"
     tools:context=".SpalshActivity">
 
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:text="Fake Api"
-    android:textColor="@color/colorAccent"
-    android:textStyle="bold"
-    android:id="@+id/txt_main"
+    <TextView
+        android:id="@+id/txt_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="110dp"
+        android:text="Fake Api"
 
 
-    android:textSize="50dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginBottom="110dp"
-    />
+        android:textColor="@color/colorAccent"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 </RelativeLayout>

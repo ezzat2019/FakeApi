@@ -1,6 +1,5 @@
 package com.example.programmer.fakeapi.repositres;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.programmer.fakeapi.models.Album;
@@ -13,15 +12,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AlbumRepositry {
-    private MutableLiveData<List<Album>> allAlbum;
     private static final AlbumRepositry ourInstance = new AlbumRepositry();
-
-    public static AlbumRepositry getInstance() {
-        return ourInstance;
-    }
+    private MutableLiveData<List<Album>> allAlbum;
 
     private AlbumRepositry() {
-        allAlbum=new MutableLiveData<>();
+        allAlbum = new MutableLiveData<>();
         RetrofitMain.getInstance().getAlbumHelberApi().getAlbums().enqueue(new Callback<List<Album>>() {
             @Override
             public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
@@ -33,6 +28,10 @@ public class AlbumRepositry {
 
             }
         });
+    }
+
+    public static AlbumRepositry getInstance() {
+        return ourInstance;
     }
 
     public MutableLiveData<List<Album>> getAllAlbum() {

@@ -1,18 +1,8 @@
 package com.example.programmer.fakeapi;
 
-import android.content.Context;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -41,9 +31,9 @@ public class CommentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        // getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setContentView(R.layout.activity_comment);
-       // overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+        // overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
 
         setUpProgessBar();
@@ -51,7 +41,6 @@ public class CommentActivity extends AppCompatActivity {
 
         setUpRecycle();
     }
-
 
 
     private void setUpProgessBar() {

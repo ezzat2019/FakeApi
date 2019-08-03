@@ -1,22 +1,18 @@
 package com.example.programmer.fakeapi;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.paging.PagedList;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.programmer.fakeapi.adapters.RecycleCommentAdapter;
-import com.example.programmer.fakeapi.adapters.view_pager.RecyclePhotoAdapter;
-import com.example.programmer.fakeapi.models.Comments;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.programmer.fakeapi.adapters.RecyclePhotoAdapter;
 import com.example.programmer.fakeapi.models.Photo;
 import com.example.programmer.fakeapi.ui.ItemClickInterface;
 import com.example.programmer.fakeapi.view_models.MainViewModel;
@@ -46,6 +42,7 @@ public class PhotoActivity extends AppCompatActivity {
         setUpRecycle();
 
     }
+
     private void setUpProgessBar() {
         progressBar = findViewById(R.id.progress_bar_photo);
         progressBar.setVisibility(View.VISIBLE);

@@ -1,4 +1,4 @@
-package com.example.programmer.fakeapi.adapters.view_pager;
+package com.example.programmer.fakeapi.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -20,10 +20,9 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclePhotoAdapter extends RecyclerView.Adapter<RecyclePhotoAdapter.VH> {
-    private List<Photo> list;
-
     private static Context con;
     private static ItemClickInterface clickInterface;
+    private List<Photo> list;
 
     public RecyclePhotoAdapter(Context con1) {
         con = con1;

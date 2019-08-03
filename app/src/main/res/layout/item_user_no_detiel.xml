@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="8dp"
+    android:elevation="9dp"
+
+    android:orientation="vertical"
+
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF186"
+        android:padding="10dp">
+
+
+        <FrameLayout
+            android:id="@+id/zz"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txt_u_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:singleLine="true"
+                    android:text="ID : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_id_n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_id"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp"
+                    android:transitionName="id_us" />
+
+                <TextView
+                    android:id="@+id/txt_u_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_id"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:singleLine="true"
+                    android:text="Name : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_name_n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_id"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_name"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp"
+                    android:transitionName="name_us" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_name"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:singleLine="true"
+                    android:text="User Name : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_name_n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_name"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_user_name"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp"
+                    android:transitionName="user_name_us" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_user_name"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:singleLine="true"
+                    android:text="Email : "
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txt_u_user_email_n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_u_user_name_n"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@id/txt_u_user_email"
+                    android:background="@drawable/square"
+                    android:text="body"
+                    android:textColor="#E1665A5A"
+                    android:textSize="16dp"
+                    android:transitionName="email_us" />
+
+                <View
+                    android:id="@+id/vv"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/txt_u_user_email"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/colorAccent"
+                    android:transitionName="vv_us" />
+            </RelativeLayout>
+
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
